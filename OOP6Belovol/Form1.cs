@@ -16,5 +16,34 @@ namespace OOP6Belovol
         {
             InitializeComponent();
         }
+
+        private void buttonCalculate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                double a = double.Parse(textBoxA.Text);
+                double b = double.Parse(textBoxB.Text);
+
+                double result = -b / a;
+
+                labelResult.Text = $"Результат: {result}";
+            }
+            catch (FormatException)
+            {
+                MessageBox.Show("Невірний формат числа. Введіть числове значення.", "Помилка");
+            }
+            catch (DivideByZeroException)
+            {
+                MessageBox.Show("Помилка: ділення на нуль.", "Помилка");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Помилка: {ex.Message}", "Помилка");
+            }
+            finally
+            {
+
+            }
+        }
     }
 }
